@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true" bootstrap="bootstrap.sample.php">
+    <testsuites>
+        <testsuite name="AllTests">
+            <!-- 初回クローン用サンプル -->
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

@@ -1,6 +1,6 @@
 {
-    "name": "vw-style/template-php",
-    "description": "PHPによる小規模アプリ開発・研修用途に最適化されたテンプレート",
+    "name": "vw-style/eatery-reviews",
+    "description": "PHPで作る飲食店レビューサイト",
     "type": "project",
     "license": "MIT",
     "autoload": {

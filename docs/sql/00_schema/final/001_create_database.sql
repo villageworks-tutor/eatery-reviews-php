@@ -5,7 +5,7 @@ DROP DATABASE IF EXISTS db_eatery_reviews;
 DROP USER IF EXISTS 'student'@'localhost';
 
 -- ロール → MariaDB ではユーザーとして作成
-CREATE USER 'student'@'%' IDENTIFIED BY 'himitu';
+CREATE USER 'student'@'localhost' IDENTIFIED BY 'himitu';
 
 -- データベース作成（UTF-8）
 CREATE DATABASE db_eatery_reviews

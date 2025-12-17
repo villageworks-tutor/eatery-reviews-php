@@ -1,0 +1,44 @@
+@startuml db_eatery_views_erd
+' === ERD 用の PlantUML 設定 ===
+!define Table(name,desc) class name as "desc" << (T,#FFAAAA) >>
+
+' === テーブル定義 ===
+Table(Members, "会員：members") {
+	+id: INT <<PK>>
+	-name:		 VARCHAR <<length=100>>
+	-handle:	 VARCHAR <<length=100>>
+	-email:		 VARCHAR <<length=255>>
+	-password: VARCHAR <<length=255>>
+}
+
+Table(Eateries, "店舗：eateries") {
+	+id: INT <<PK>>	
+	-area:        SMALLINT <<FK>>
+	-name:        VARCHAR <<length=100>>
+	-address:     VARCHAR <<length=200>>
+	-description: VARCHAR <<length=255>>
+	-image:       VARCHAR <<length=100>>
+}
+
+Table(Reviews, "レビュ：reviews") {
+	+id:         INT <<PK>>
+	-eatery_id:  INT <<FK>>
+	-reviewer:   INT <<FK>>
+	-title:      VARCHAR <<length=100>>
+	-comment:    VARCHAR <<length=255>>
+	-rating:     TINYINT
+	-image:      VARCHAR <<length=100>>
+	-posted_at:  DATETIME
+	-updated_at: DATETIME
+}
+
+Table(Areas, "地域：areas") {
+	+id:   SMALLINT <<PK>>
+	-name: VARCHAR <<length=50>>
+}
+
+' === リレーション ===
+Members ||--o{ Reviews : "1:N"
+Eateries ||--o{ Reviews : "1:N"
+Areas ||--o{ Eateries : "1:N"
+@enduml

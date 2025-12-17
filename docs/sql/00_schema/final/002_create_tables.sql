@@ -17,6 +17,7 @@ CREATE TABLE `eateries` (
   `name` varchar(100) NOT NULL,
   `address` varchar(255) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
+  `image` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_eateries_area` (`area`),
   CONSTRAINT `fk_eateries_area` FOREIGN KEY (`area`) REFERENCES `areas` (`id`)
@@ -28,6 +29,7 @@ CREATE TABLE `reviews` (
   `title` varchar(100) NOT NULL,
   `comment` varchar(255) NOT NULL,
   `rating` tinyint(4) NOT NULL DEFAULT 3,
+  `image` varchar(100) DEFAULT NULL,
   `posted_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),

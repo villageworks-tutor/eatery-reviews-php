@@ -1,0 +1,4 @@
+mysql -u student -p db_eatery_reviews -e "show create table areas\G" | sed -n '/Create Table:/, $p' | sed 's/^Create Table: //' | sed '$ s/$/;/' > docs/sql/00_schema/final/002_create_tables.sql
+mysql -u student -p db_eatery_reviews -e "show create table members\G" | sed -n '/Create Table:/, $p' | sed 's/^Create Table: //' | sed '$ s/$/;/' >> docs/sql/00_schema/final/002_create_tables.sql
+mysql -u student -p db_eatery_reviews -e "show create table eateries\G" | sed -n '/Create Table:/, $p' | sed 's/^Create Table: //' | sed '$ s/$/;/' >> docs/sql/00_schema/final/002_create_tables.sql
+mysql -u student -p db_eatery_reviews -e "show create table reviews\G" | sed -n '/Create Table:/, $p' | sed 's/^Create Table: //' | sed '$ s/$/;/' >> docs/sql/00_schema/final/002_create_tables.sql

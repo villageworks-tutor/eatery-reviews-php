@@ -1,0 +1,10 @@
+sass/
+  └─partials/
+      ├─base ← サイト全体のスタイル
+      ├─commons ← 色・フォント・色・関数など
+      ├─components
+      │  ├─structures ← 構造に依存するスタイル
+      │  └─contents   ← 意味内容に依存するスタイル
+      ├─layout ← ？
+      ├─pages  ← 入力画面・確認画面・エラー画面のスタイル
+      └─utils  ← 空白や文字揃えなどの部分的なスタイル

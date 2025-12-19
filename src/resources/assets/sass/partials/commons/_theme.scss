@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+/* デフォルトの前景色、背景色およびデフォルトの枠線色 */
+$default-fore-color: dimgray;
+$default-back-dolor: white;
+$default-border-color: dimgray;
+
+/* 3色配色 */
+$main-color: green;
+$sub-color: seagreen;
+$accent-color: lightgreen;
+
+/* その他 */
+$error-color: tomato;
+$warning-color: yellow;
+$information-color: steelblue;

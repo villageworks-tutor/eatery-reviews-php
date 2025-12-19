@@ -1,0 +1,8 @@
+@charset "utf-8";
+@forward "./typography";
+@use "./typography" as *;
+
+@function calcSizeByScale($scale: 1.0) {
+	$size: $default-font-size * $scale;
+	@return $ize;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>レストラン詳細情報</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+</head>
+
+<body id="S01">
+	<div id="main">
+		<h1>レストラン詳細</h1>
+		<div id="restaurant">
+			<table class="list">
+			<tr>
+			<td class="photo"><img src="image/restaurant_1.jpg" width="200"></td>
+			<td>
+				<strong>Wine Bar ENOTECA</strong><br />
+				常時10種類以上の赤・白ワインをご用意しています。<br />記念日にご来店ください。
+			</td>
+			</tr>
+			</table>
+			<section class="reviews">
+				<h2>口コミ一覧</h2>
+				<dl class="review">
+					<dt>
+						<div class="title">運が良いと電車が見られる窓側に案内される</div>
+						<div class="postedAt">2023年6月21日</div>
+						<div class="reviewer">user01</div>
+						<div class="rating">4</div>
+					</dt>
+					<dd>
+						<div class="content">
+							2025年11月日曜日18:00往訪。満席のため20分程度待って入店。以下をオーダーしました。
+							ほぼ、毎回固定化されたオーダーです。
+							パスタ系はどうしても水っぽさがありますが、ミラノ風ドリアは美味。
+							ほうれん草のソテーは様々な商品とよく合い万能アイテム。
+						</div>
+						<div class="image"></div>
+					</dd>
+				</dl>
+				<section class="post">
+					<h2>口コミを書き込む</h2>
+					<form name="review_form" action="detail.php" method="post">
+						<table class="write">
+							<tr>
+								<th>お名前</th>
+								<td><input type="text" name="reviewer" size="14"></td>
+							</tr>
+							<tr>
+								<th>ポイント</th>
+								<td>
+									<input type="radio" name="point" value="1" />1
+									<input type="radio" name="point" value="2" />2
+									<input type="radio" name="point" value="3" checked/>3
+									<input type="radio" name="point" value="4" />4
+									<input type="radio" name="point" value="5" />5
+								</td>
+							</tr>
+							<tr>
+								<th>口コミ</th>
+								<td>
+									<textarea name="review" cols="30" rows="4"></textarea>
+									<button class="submit Btn-gray button">画像を投稿</button>
+								</td>
+							</tr>
+						</table>
+						<input type="submit" value="送信" class="submit Btn-gray button" />
+					</form>
+				</section>
+			</section>
+
+		</div>
+	</div>
+</body>
+</html>

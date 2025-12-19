@@ -1,0 +1,244 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color: #F9F9F9;
+	font-size: 80%;
+	color: #333;
+	padding: 30px 0 0 30px;
+}
+
+div,
+p,
+ul,
+li,
+dl,
+dt,
+dd,
+table,
+tr,
+th,
+td,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	padding: 0;
+	margin: 0;
+}
+
+h1 {
+	font-size: 130%;
+	margin: 0 0 15px;
+	padding: 2px 0 2px 3px;
+	border-left: #008000 5px solid;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+input,
+textarea,
+select,
+option {
+	border: #999 1px solid;
+}
+
+table {
+	border-top: #93C400 1px solid;
+	border-right: #93C400 1px solid;
+	border-left: #93C400 1px solid;
+}
+
+th,
+td {
+	padding: 5px 10px;
+	border-bottom: #93C400 1px solid;
+}
+
+th {
+	background: #E9F3CC;
+	font-weight: normal;
+}
+
+td {
+	background-color: #F8FBEC;
+}
+
+ul li {
+	list-style: none;
+}
+
+a img {
+	border: #CCC 1px solid;
+}
+
+.red {
+	color: #C00;
+}
+
+.blue {
+	color: #30F;
+}
+
+.green {
+	color: #030;
+}
+
+button {
+	text-align: center;
+	font-size: 90%;
+	margin: 10px auto 0;
+}
+
+input.button {
+	text-align: center;
+	font-size: 90%;
+	width: 50px;
+	margin: 10px auto 0;
+}
+
+.Btn-gray {
+	color: #333;
+	border: 1px solid #AAA;
+	cursor: pointer;
+	background: #EEE;
+	padding: 3px 12px;
+}
+
+.Btn-gray:hover {
+	color: #666;
+	background: #FFF;
+}
+
+
+#S01 #main {
+	width: 400px;
+}
+
+#S01 form {
+	text-align: center;
+}
+
+#S01 table {
+	width: 100%;
+	text-align: left;
+}
+
+#S01 table td {
+	width: 65%;
+}
+
+#S01-03 #main {
+	width: 500px;
+}
+
+#S01 p {
+	padding: 0px;
+	margin: 20px;
+}
+
+#S01-03 table {
+	width: 90%;
+	text-align: left;
+	margin: 20px;
+}
+
+#restaurant h2 {
+	font-size: 110%;
+	text-align: left;
+	padding: 15px 0 0;
+}
+
+#restaurant table.list td {
+	padding: 5px 0 5px 10px;
+	vertical-align: top;
+}
+
+#restaurant table.list .photo {
+	width: 15%;
+}
+
+#restaurant table.list .info {
+	width: 60%;
+}
+
+#restaurant table.list .detail {
+	width: 15%;
+	vertical-align: middle;
+}
+
+#restaurant .search {
+	margin: 0 0 5px;
+}
+
+#restaurant .submit,
+button {
+	margin: 5px 0 0;
+}
+
+#S02 {
+	width: 500px;
+}
+
+#S02 .view dt {
+	margin-top: -10px;
+	position: relative;
+	bottom: -140px;
+	background-color: #FFF;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	font-weight: bold;
+	font-size: 90%;
+	padding: 5px;
+	width: 490px;
+	text-align: left;
+	z-index: 1;
+}
+
+#S02 .view dd {
+	width: 500px;
+	position: absolute;
+	margin-top: -10px;
+}
+
+#S02 .view .text {
+	position: relative;
+	top: 150px;
+	padding: 0 5px;
+}
+
+#S02 .view .text p {
+	padding: 0 0 10px;
+}
+
+#S02-10 #main {
+	width: 500px;
+}
+
+#S04-04 #main {
+	width: 500px;
+}
+
+#S04-04 p {
+	padding: 0px;
+	margin: 20px;
+}
+
+#S05 #animal table {
+	width: 450px;
+}
+
+#S05 #animal td {
+	width: 50%;
+}
+
+#S05 #animal li.photo {
+	text-align: center;
+	padding: 0 0 5px;
+}

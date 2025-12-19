@@ -1,8 +1,13 @@
 @charset "utf-8";
+@forward "../abstracts/";
+@use "../abstracts/" as abstract;
+
 html {
-	font-size: 62.5%;
-	body {
-		color: dimgray;
-		font-size: 1.4rem;
-	}
+	font-size: abstract.$default-font-scale;
+}
+
+body {
+	color: abstract.$default-fore-color;
+	background-color: abstract.$accent-color;
+	font-size: abstract.$default-font-size;
 }

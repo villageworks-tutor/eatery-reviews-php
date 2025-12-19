@@ -1,7 +1,9 @@
 html {
   font-size: 62.5%;
 }
-html body {
+
+body {
   color: dimgray;
+  background-color: cornsilk;
   font-size: 1.4rem;
 }/*# sourceMappingURL=style.css.map */

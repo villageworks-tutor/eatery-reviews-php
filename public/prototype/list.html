@@ -1,34 +1,36 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="ja">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
 	<title>レストラン一覧</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+	<link rel="stylesheet" href="../css/style.css"/>
 </head>
 <body>
 	<header class="header">
 		<h1 class="header__site-title">レストラン口コミサイト（仮）</h1>
 	</header>
 	<main>
-		<article id="list">
+		<article class="list">
 			<h2 class="header__page-title">レストラン一覧</h2>
 			<section class="criteria">
-				<form name="criteria__form" action="list.php" method="post">
-					<div class="criteria__select-wrapper">
-						<select class="criteria__select" name="area">
-							<option class="criteria__option" value="">選択してください</option>
-							<option class="criteria__option" value="1">伊豆</option>
-							<option class="criteria__option" value="2">神戸</option>
-							<option class="criteria__option" value="3">福岡</option>
-						</select>
+				<form class="criteria__form" action="list.php" method="post">
+					<div class="criteria__controls">
+						<div class="criteria__select-wrapper">
+							<select class="criteria__select" name="area">
+								<option class="criteria__option" value="">選択してください</option>
+								<option class="criteria__option" value="1">伊豆</option>
+								<option class="criteria__option" value="2">神戸</option>
+								<option class="criteria__option" value="3">福岡</option>
+							</select>
+						</div>
+						<button class="criteria__button button">検索</button>
 					</div>
-					<button class="criteria__button">検索</button>
 				</form>
 			</section>
 			<section class="result">
 				<div class="result__list">
 					<dl class="result__item">
-						<dt class="result__item-image"><img src="image/restaurant1.jsp" alt="Wine Bar ENOTECA" width="110"></dt>
+						<dt class="result__item-image"><img src="image/restaurant_1.jpg" alt="Wine Bar ENOTECA" width="110"></dt>
 						<dd class="result__item-name">
 							Wine Bar ENOTECA
 						</dd>
@@ -40,7 +42,7 @@
 						</dd>
 					</dl>
 					<dl class="result__item">
-						<dt class="result__item-image"><img src="image/restaurant2.jsp" alt="スペイン料理 ポルファボール！" width="110"></dt>
+						<dt class="result__item-image"><img src="image/restaurant_2.jpg" alt="スペイン料理 ポルファボール！" width="110"></dt>
 						<dd class="result__item-name">
 							スペイン料理 ポルファボール！
 						</dd>
@@ -52,7 +54,7 @@
 						</dd>
 					</dl>
 					<dl class="result__item">
-						<dt class="result__item-image"><img src="image/restaurant3.jsp" alt="パス・パスタ" width="110"></dt>
+						<dt class="result__item-image"><img src="image/restaurant_3.jpg" alt="パス・パスタ" width="110"></dt>
 						<dd class="result__item-name">
 							パス・パスタ
 						</dd>
@@ -64,7 +66,7 @@
 						</dd>
 					</dl>
 					<dl class="result__item">
-						<dt class="result__item-image"><img src="image/restaurant4.jsp" alt="レストラン「有閑」" width="110"></dt>
+						<dt class="result__item-image"><img src="image/restaurant_4.jpg" alt="レストラン「有閑」" width="110"></dt>
 						<dd class="result__item-name">
 							レストラン「有閑」
 						</dd>
@@ -76,7 +78,7 @@
 						</dd>
 					</dl>
 					<dl class="result__item">
-						<dt class="result__item-image"><img src="image/restaurant5.jsp" alt="ビストロ「ルーヴル」" width="110"></dt>
+						<dt class="result__item-image"><img src="image/restaurant_5.jpg" alt="ビストロ「ルーヴル」" width="110"></dt>
 						<dd class="result__item-name">
 							ビストロ「ルーヴル」
 						</dd>
@@ -88,7 +90,7 @@
 						</dd>
 					</dl>
 					<dl class="result__item">
-						<dt class="result__item-image"><img src="image/restaurant6.jsp" alt="海沿いのレストラン La Mer" width="110"></dt>
+						<dt class="result__item-image"><img src="image/restaurant_6.jpg" alt="海沿いのレストラン La Mer" width="110"></dt>
 						<dd class="result__item-name">
 							海沿いのレストラン La Mer
 						</dd>
@@ -100,7 +102,7 @@
 						</dd>
 					</dl>
 					<dl class="result__item">
-						<dt class="result__item-image"><img src="image/restaurant7.jsp" alt="レストラン さくら" width="110"></dt>
+						<dt class="result__item-image"><img src="image/restaurant_7.jpg" alt="レストラン さくら" width="110"></dt>
 						<dd class="result__item-name">
 							レストラン さくら
 						</dd>

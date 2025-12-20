@@ -1,0 +1,47 @@
+@charset "utf-8";
+@forward "../abstracts/";
+@use "../abstracts/" as abstract;
+
+//* リストの基本スタイル */
+.list {
+  //* 検索条件・検索結果表示領域の内側余白 */
+  .criteria, .result {
+    padding: abstract.calcSizeByScaledChar(0.75);
+  }
+
+  //* 検索条件表示領域の物理的スタイル */
+	.criteria {
+		&__form {
+			padding: abstract.calcSizeByScaledChar(0.75) 0;
+		}
+    //* 入力部品領域 */
+		&__controls {
+			display: flex;
+			align-items: center;
+			gap: abstract.calcSizeByScaledChar(0.75);
+		}
+    //* セレクトボックス領域 */
+		&__select-wrapper {
+			position: relative;
+			display: inline-block;
+			overflow: hidden;
+			width: abstract.calcSizeByScaledChar(16);
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+    //* セレクトボックス */
+		&__select {
+			border: none;
+			width: 100%;
+			padding: abstract.calcSizeByScaledChar(0.57);
+			appearance: none;
+		}
+    //* 検索ボタン */
+		&__button {
+			width: abstract.calcSizeByScaledChar(4);
+			padding: abstract.calcSizeByScaledChar(0.25) abstract.calcSizeByScaledChar(1.0);
+		}
+	}
+}
+
+

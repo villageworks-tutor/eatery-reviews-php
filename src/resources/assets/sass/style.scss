@@ -1,2 +1,12 @@
 @charset "utf-8";
 @forward "./partials/base/";
+@forward "./partials/layout/";
+@forward "./partials/components/";
+@forward "./partials/abstracts/";
+@use "./partials/abstracts/" as abstract;
+
+.list {
+	.result {
+		
+	}
+}

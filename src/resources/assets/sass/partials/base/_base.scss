@@ -9,5 +9,8 @@ html {
 body {
 	color: abstract.$default-fore-color;
 	background-color: abstract.$accent-color;
+	width: abstract.calcSizeByScaledChar(50);
+	margin: 0 auto;
 	font-size: abstract.$default-font-size;
 }
+

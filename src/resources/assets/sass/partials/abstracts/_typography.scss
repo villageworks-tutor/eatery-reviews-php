@@ -19,11 +19,16 @@ $large-font-size: $default-font-size * $large-font-scale;
 //* 見出しのフォントケール */
 $h1_font-scale: 1.8;
 $h2-font-scale: 1.5;
-$h3-font-scale: 1.25%;
+$h3-font-scale: 1.25;
 //* 見出しのフォントサイズ */
 $h1-font-size: $default-font-size * $h1-font-scale;
 $h2-font-size: $default-font-size * $h2-font-scale;
 $h3-font-size: $default-font-size * $h3-font-scale;
+
+//* UIのフォントスケールとフォントサイズ
+$button-top-scale: 0.90;
+$button-top-size: $default-font-size * $button-top-scale;
+
 
 //* スペースのスケール */
 $single-white-space-scale: 0.5;

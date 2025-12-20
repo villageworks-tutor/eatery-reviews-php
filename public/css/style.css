@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   font-size: 62.5%;
 }
@@ -5,5 +6,94 @@ html {
 body {
   color: dimgray;
   background-color: cornsilk;
+  width: 70rem;
+  margin: 0 auto;
   font-size: 1.4rem;
+}
+
+.header__site-title, .header__page-title {
+  margin: 0;
+  padding: 0;
+}
+.header__site-title {
+  padding-top: 2.45rem;
+  font-size: 1.75rem;
+  text-align: right;
+}
+.header__page-title {
+  /* 内側余白・左下 */
+  padding-left: 0.35rem;
+  padding-bottom: 0.175rem;
+  /* 枠線・左下 */
+  border-left: 5px solid seagreen;
+  border-bottom: 1px solid seagreen;
+}
+
+.footer {
+  width: 49rem;
+  margin: 0 auto;
+  padding: 0.35rem;
+}
+.footer__copyright {
+  border-top: 1px solid dimgray;
+  margin: 0.7rem;
+  padding: 1.05rem;
+  padding-bottom: 3.5rem;
+  text-align: center;
+}
+
+.list .criteria, .list .result {
+  padding: 1.05rem;
+}
+.list .criteria__form {
+  padding: 1.05rem 0;
+}
+.list .criteria__controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1.05rem;
+}
+.list .criteria__select-wrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 22.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.list .criteria__select {
+  border: none;
+  width: 100%;
+  padding: 0.798rem;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.list .criteria__button {
+  width: 5.6rem;
+  padding: 0.35rem 1.4rem;
+}
+
+.button {
+  display: inline-block;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  color: dimgray;
+  background-color: gainsboro;
+  border: 1px solid lightgray;
+  text-align: center;
+  font-size: 1.26rem;
+}
+.button:hover {
+  background-color: white;
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */

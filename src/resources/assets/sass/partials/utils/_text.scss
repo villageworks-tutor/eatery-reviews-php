@@ -1,0 +1,32 @@
+@charset "utf-8";
+@forward "../abstracts/theme";
+@use "../abstracts/" as *;
+
+// 左揃え
+.u-text-left {
+  text-align: left;
+}
+// 中央揃え
+.u-text-center {
+  text-align: center;
+}
+// 右揃え
+.u-text-right {
+  text-align: right;
+}
+// 下線
+.u-text-underlined {
+  text-decoration: underline;
+}
+// 太文字
+.u-text-bold {
+  font-weight: bold;
+}
+// 標準（レギュラーウェイト）
+.u-text-regular {
+  font-weight: normal;
+}
+
+.u-text-error {
+  color: $error-color;
+}

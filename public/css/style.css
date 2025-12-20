@@ -45,6 +45,9 @@ body {
 .list .criteria, .list .result {
   padding: 1.05rem;
 }
+.list .criteria {
+  padding-left: 1.75rem;
+}
 .list .criteria__form {
   padding: 1.05rem 0;
 }
@@ -77,6 +80,30 @@ body {
   width: 5.6rem;
   padding: 0.35rem 1.4rem;
 }
+.list .result__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 1.75rem;
+  border: 1px solid cornsilk;
+  margin: 0 0 1.75rem;
+  padding: 0.7rem;
+  background-color: white;
+}
+.list .result__item-content {
+  margin: 0;
+  padding: 0;
+}
+.list .result__item-name {
+  font-weight: bold;
+  font-size: 1.75rem;
+}
 
 .button {
   display: inline-block;
@@ -96,4 +123,37 @@ body {
 .button:hover {
   background-color: white;
   font-weight: bold;
+}
+
+.u-text-left {
+  text-align: left;
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-text-right {
+  text-align: right;
+}
+
+.u-text-underlined {
+  text-decoration: underline;
+}
+
+.u-text-bold {
+  font-weight: bold;
+}
+
+.u-text-regular {
+  font-weight: normal;
+}
+
+.u-text-error {
+  color: tomato;
+}
+
+.u-shadow-sm {
+  -webkit-box-shadow: 10px 10px 15px -10px;
+          box-shadow: 10px 10px 15px -10px;
 }/*# sourceMappingURL=style.css.map */

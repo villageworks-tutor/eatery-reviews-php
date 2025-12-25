@@ -1,9 +1,31 @@
 @charset "utf-8";
 @forward "./typography";
 @use "./typography" as *;
+@forward "./functions";
+@use "./functions" as *;
 
+
+//**
+// 余白（外側余白、内側余白ともに）を初期化する
+//*
 @mixin initSpace() {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 } 
+
+//**
+// ブロックの上下外側余白を設定する
+//  @param $top    上側余白（省略された場合はnull）
+//  @param $bottom 下側余白（省略された場合はnull）
+//
+//  引数が省略された場合は余白の設定はしない
+//*
+@mixin block-margin-adjust($top: null, $bottom: null) {
+	@if $top != null {
+		margin-top: calcSizeByScaledChar($top);
+	}
+	@if $bottom != null {
+		margin-bottom: calcSizeByScaledChar($bottom);
+	}
+}
 

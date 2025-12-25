@@ -125,6 +125,109 @@ body {
   font-weight: bold;
 }
 
+.table {
+  border-collapse: collapse;
+}
+.table__heading, .table__cell {
+  border: 1px solid green;
+  padding: 0.35rem 1.05rem;
+  word-break: keep-all;
+}
+.table--borderless .table__heading, .table--borderless .table__cell {
+  border: 0 solid dimgray;
+}
+
+.detail {
+  padding: 1.05rem 1.05rem 1.05rem 2.8rem;
+}
+.detail .eatery, .detail .review__list {
+  width: 63rem;
+  margin: 0 auto;
+}
+.detail .eatery__detail-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.75rem;
+}
+.detail .eatery__content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-width: 0;
+  margin: 0;
+}
+.detail .eatery__image--body {
+  width: 16.8rem;
+}
+.detail .eatery__contact {
+  text-align: right;
+}
+.detail .review__item {
+  border: 1px solid green;
+  background-color: white;
+  margin-top: 0rem;
+  margin-bottom: 1.75rem;
+  padding: 0.35rem 1.05rem;
+}
+.detail .review__item-title {
+  font-weight: bold;
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+.detail .review__item-reviewer, .detail .review__item-postedAt, .detail .review__item-rating, .detail .review__item-comment {
+  margin: 0;
+  padding: 0;
+}
+.detail .review__item-reviewer, .detail .review__item-postedAt {
+  display: inline;
+  text-align: right;
+}
+.detail .review__item-postedAt::after {
+  content: "：";
+}
+.detail .review__item-comment {
+  margin-top: 0.7rem;
+  margin-bottom: 0.175rem;
+}
+.detail .post__fieldset {
+  border: 0;
+}
+.detail .post__row {
+  display: grid;
+  grid-template-columns: 5rem 5rem 5rem 5rem 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.detail .post__heading, .detail .post__rating-title {
+  color: cornsilk;
+  background-color: seagreen;
+}
+.detail .post__rating-label {
+  font-size: 1.4rem;
+}
+.detail .post__controls {
+  width: 63rem;
+  margin: 0 auto;
+  margin-top: 2.1rem;
+  margin-bottom: 1.05rem;
+}
+.detail .post__controls .table__heading {
+  width: 9.8rem;
+}
+.detail .post__text[name=review] {
+  height: 8.4rem;
+  width: 47.6rem;
+}
+.detail .post__action {
+  text-align: center;
+}
+.detail .post__button {
+  width: 5.6rem;
+  padding: 0.35rem 1.4rem;
+}
+
 .u-text-left {
   text-align: left;
 }

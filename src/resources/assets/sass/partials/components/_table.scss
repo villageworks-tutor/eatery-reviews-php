@@ -1,0 +1,56 @@
+@charset "utf-8";
+@forward "../abstracts/";
+@use "../abstracts/" as abstract;
+
+//**
+// セルの内側余白を$default-font-sizeの倍数で設定する
+//  @param $vertical   垂直方向の内側余白（省略した場合は0.25文字分）
+//  @param $horizontal 水平方向の内側余白（省略した場合は0.75文字分）
+//*
+@mixin setCellPaddings($vertical: 0.25, $horizontal: 0.75) {
+	padding: abstract.calcSizeByScaledChar($vertical) abstract.calcSizeByScaledChar($horizontal);
+}
+
+//**
+// 罫線を設定する
+//  @param $width 罫線幅（省略された場合は1px：pc単位）
+//  @param $style 罫線形状（省略された場合はsolid）
+//  @param $color 罫線色（省略された場合は$default-border-color）
+//*
+@mixin setBorders($width: 1px, $style: solid, $color: abstract.$default-border-color) {
+	border: $width $style $color;
+}
+
+//**
+// 上下の外余白を設定する
+//  @param $top 上外余白の文字数（省略された場合は0.75文字）
+//  @param $bottom 視野外余白の文字数（省略された場合は$topと同じ）
+//  $topが指定されて$bottomが指定されなかった場合は$bottomに$topを代入して上下の外余白を同じ幅で確保する
+//*
+@mixin setVerticalMargin($top: 0.75, $bottom: null) {
+	@if ($bottom == null) {
+		$bottom: $top;
+	}
+	margin-top: abstract.calcSizeByScaledChar($top);
+	margin-bottom: abstract.calcSizeByScaledChar($bottom);
+}
+
+//**
+// 表組みのデフォルトスタイル：border-collapseはcollapse、罫線描画のスタイル
+//*
+.table {
+//	@include setVerticalMargin(1.5); // WARNING: ここは具体的な意味構造を規定するcomponent側で設定するべきかも
+	border-collapse: collapse;
+	&__heading, &__cell {
+		@include setBorders($color: abstract.$main-color);
+		@include setCellPaddings();
+		word-break: keep-all;
+	}
+
+	// 罫線なしスタイル
+	&--borderless {
+		.table__heading, .table__cell {
+			@include setBorders($width: 0);
+		}
+	}
+}

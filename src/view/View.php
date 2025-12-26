@@ -25,7 +25,7 @@ class View {
 	/**
 	 * レンダリングする
 	 */
-	public function render(): string {
+	public function render():string {
 		// 連想配列 $params をテンプレート内で 変数として直接使える ように展開
 		extract($this->params);
 		// テンプレート読み込み中の出力を 一旦バッファに貯めて文字列として取得
@@ -38,7 +38,7 @@ class View {
 	 * テンプレートのフルパスを生成する
 	 * TODO: 存在チェックがあるとより安全
 	 */
-	private function createTemplatePath(): string {
+	private function createTemplatePath():string {
 		return __DIR__."/templates/{$this->template}.view.php";
 	}
 

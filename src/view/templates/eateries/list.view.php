@@ -6,10 +6,12 @@
 						<div class="criteria__select-wrapper">
 							<select class="criteria__select" name="area">
 								<option class="criteria__option" value="">選択してください</option>
-								<option class="criteria__option" value="1">伊豆</option>
-								<option class="criteria__option" value="2">神戸</option>
-								<option class="criteria__option" value="3">福岡</option>
-							</select>
+								<?php foreach ($areas as $area): ?>
+									<option class="criteria__option" value="<?= $area->getId() ?>">
+										<?= $area->getName() ?>
+									</option>
+								<?php endforeach; ?>
+						</select>
 						</div>
 						<button class="criteria__button button">検索</button>
 					</div>

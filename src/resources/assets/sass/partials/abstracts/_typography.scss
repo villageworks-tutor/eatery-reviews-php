@@ -1,0 +1,43 @@
+@charset "utf-8";
+@use "sass:math";
+
+//* フォントファミリの基本設定 */
+$font-family-base: 'Noto Sans JP', sans-serif; //* 平文 */
+$font-family-heading: 'Merriweather', serif;   //* 見出し */
+
+//* デフォルトのフォントスケールとフォントサイズ */
+$default-font-scale: 62.5%;
+$default-font-size: 1.4rem;
+
+//* フォントサイズサイズのスケール */
+$small-font-scale: math.div(1.4, 1.6);
+$large-font-scale: math.div(2.0, 1.6);
+//* 各種フォントサイズ */
+$small-font-size: $default-font-size * $small-font-scale;
+$large-font-size: $default-font-size * $large-font-scale;
+
+//* 見出しのフォントケール */
+$h1_font-scale: 1.8;
+$h2-font-scale: 1.5;
+$h3-font-scale: 1.25;
+//* 見出しのフォントサイズ */
+$h1-font-size: $default-font-size * $h1-font-scale;
+$h2-font-size: $default-font-size * $h2-font-scale;
+$h3-font-size: $default-font-size * $h3-font-scale;
+
+//* UIのフォントスケールとフォントサイズ
+$button-top-scale: 0.90;
+$button-top-size: $default-font-size * $button-top-scale;
+
+
+//* スペースのスケール */
+$single-white-space-scale: 0.5;
+$double-white-space-scale: 1.0;
+//* スペースのサイズ */
+$single-white-space: $default-font-size * $single-white-space-scale;
+$double-white-space: $default-font-size * $double-white-space-scale;
+
+//* 行高 */
+$line-height-base: 1.5;
+$line-height-heading: 1.2;
+

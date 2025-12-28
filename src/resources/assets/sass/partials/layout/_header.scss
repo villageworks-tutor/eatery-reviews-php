@@ -1,0 +1,23 @@
+@charset "utf-8";
+@forward "../abstracts/";
+@use "../abstracts/" as abstract;
+
+.header {
+	&__site-title, &__page-title {
+		@include abstract.initSpace();
+	}
+	&__site-title {
+		padding-top: abstract.calcSizeByScaledChar(1.75);
+		font-size: abstract.$h3-font-size;
+		text-align: right;
+	}
+	&__page-title {
+		/* 内側余白・左下 */
+		padding-left: abstract.calcSizeByScaledChar(0.25);
+		padding-bottom: abstract.calcSizeByScaledChar(0.125);
+		/* 枠線・左下 */
+		border-left: 5px solid abstract.$sub-color;
+		border-bottom: 1px solid abstract.$sub-color;
+	}
+}
+

@@ -1,0 +1,16 @@
+@charset "utf-8";
+@forward "../abstracts/";
+@use "../abstracts/" as abstract;
+
+.footer {
+	width: abstract.calcSizeByScaledChar(35);
+	margin: 0 auto;
+	padding: abstract.calcSizeByScaledChar(0.25);
+	&__copyright {
+		border-top: 1px solid abstract.$default-border-color;
+		margin: abstract.calcSizeByScaledChar(0.5);
+		padding: abstract.calcSizeByScaledChar(0.75);
+		padding-bottom: abstract.calcSizeByScaledChar(2.5);
+		text-align: center;
+	}
+}

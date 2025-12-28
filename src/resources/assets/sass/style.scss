@@ -1,0 +1,5 @@
+@charset "utf-8";
+@forward "./forward";
+@forward "./partials/abstracts/";
+@use "./partials/abstracts/" as abstract;
+

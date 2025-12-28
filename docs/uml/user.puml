@@ -1,0 +1,7 @@
+@startuml
+
+Top --> UserList : ユーザー一覧
+UserList --> UserDetail : 行クリック
+UserDetail --> UserList : 戻る
+
+@enduml

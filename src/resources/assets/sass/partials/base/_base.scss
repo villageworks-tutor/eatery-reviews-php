@@ -1,0 +1,16 @@
+@charset "utf-8";
+@forward "../abstracts/";
+@use "../abstracts/" as abstract;
+
+html {
+	font-size: abstract.$default-font-scale;
+}
+
+body {
+	color: abstract.$default-fore-color;
+	background-color: abstract.$accent-color;
+	width: abstract.calcSizeByScaledChar(50);
+	margin: 0 auto;
+	font-size: abstract.$default-font-size;
+}
+

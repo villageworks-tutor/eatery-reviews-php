@@ -1,0 +1,23 @@
+@charset "utf-8";
+@forward "../abstracts/";
+@use "../abstracts/" as abstract;
+
+//* ボタンの共通スタイル */
+.button {
+	display: inline-block;
+	align-items: center;
+	justify-content: center;
+
+	cursor: pointer;
+	color: abstract.$default-fore-color;
+	background-color: gainsboro;
+	border: 1px solid abstract.$button-border-color;
+	text-align: center;
+	font-size: abstract.$button-top-size;
+
+	&:hover {
+		background-color: abstract.$default-back-color;
+		font-weight: bold;
+	}
+
+}

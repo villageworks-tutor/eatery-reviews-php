@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+//* デフォルトの前景色、背景色およびデフォルトの枠線色 */
+$default-fore-color: dimgray;
+$default-back-color: white;
+$default-border-color: dimgray;
+$button-border-color: lightgray;
+
+//* 3色配色 */
+$main-color: green;
+$sub-color: seagreen;
+$accent-color: cornsilk;
+
+//* その他 */
+$error-color: tomato;
+$warning-color: yellow;
+$information-color: steelblue;
+
+//* 影効果 */
+$shadow-sm: 10px 10px 15px -10px rgba(0, 0, 0, 0.15);

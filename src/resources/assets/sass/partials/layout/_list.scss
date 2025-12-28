@@ -1,0 +1,71 @@
+@charset "utf-8";
+@forward "../abstracts/";
+@use "../abstracts/" as abstract;
+
+//* リストの基本スタイル */
+.list {
+  //* 検索条件入力領域・検索結果表示領域の内側余白 */
+  .criteria, .result {
+    padding: abstract.calcSizeByScaledChar(0.75);
+  }
+
+  //* 検索条件入力領域の物理的スタイル */
+	.criteria {
+		padding-left: abstract.calcSizeByScaledChar(1.25);
+		&__form {
+			padding: abstract.calcSizeByScaledChar(0.75) 0;
+		}
+    //* 入力部品領域 */
+		&__controls {
+			display: flex;
+			align-items: center;
+			gap: abstract.calcSizeByScaledChar(0.75);
+		}
+    //* セレクトボックス領域 */
+		&__select-wrapper {
+			position: relative;
+			display: inline-block;
+			overflow: hidden;
+			width: abstract.calcSizeByScaledChar(16);
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+    //* セレクトボックス */
+		&__select {
+			border: none;
+			width: 100%;
+			padding: abstract.calcSizeByScaledChar(0.57);
+			appearance: none;
+		}
+    //* 検索ボタン */
+		&__button {
+			width: abstract.calcSizeByScaledChar(4);
+			padding: abstract.calcSizeByScaledChar(0.25) abstract.calcSizeByScaledChar(1.0);
+		}
+	}
+
+	//* 検索結果表示領域 */
+	.result {
+		//* 検索結果1件分の表示領域 */
+		&__item {
+			display: flex;
+			justify-content: flex-start;
+			align-items: flex-start;
+			gap: abstract.calcSizeByScaledChar(1.25);
+			border: 1px solid abstract.$accent-color;
+			margin: 0 0 abstract.calcSizeByScaledChar(1.25);
+			padding: abstract.calcSizeByScaledChar(0.50);
+			background-color: abstract.$default-back-color;
+
+			&-content {
+				margin: 0;
+				padding: 0;
+			}
+
+			&-name {
+				font-weight: bold;
+				font-size: abstract.$large-font-size;
+			}
+		}
+	}
+}

@@ -1,0 +1,110 @@
+@charset "utf-8";
+
+@forward "../abstracts/";
+@use "../abstracts/" as abstract;
+
+.detail {
+	padding: abstract.calcSizeByScaledChar(0.75) 
+					 abstract.calcSizeByScaledChar(0.75) 
+					 abstract.calcSizeByScaledChar(0.75)
+					 abstract.calcSizeByScaledChar(2.0);
+
+	.eatery, .review__list {
+		width: abstract.calcSizeByScaledChar(45);
+		margin: 0 auto;
+	}
+
+	.eatery {
+		&__detail-wrapper {
+			display: flex;
+			gap: abstract.calcSizeByScaledChar(1.25);
+		}
+		&__content {
+			flex: 1;
+			min-width: 0;
+			margin: 0;
+		}
+		&__image--body {
+			width: abstract.calcSizeByScaledChar(12);
+		}
+		&__contact {
+			text-align: right;
+		}
+	}
+
+	.review {
+		&__item {
+			border: 1px solid abstract.$main-color;
+			background-color: abstract.$default-back-color;
+			@include abstract.block-margin-adjust(0, 1.25);
+			padding: abstract.calcSizeByScaledChar(0.25) abstract.calcSizeByScaledChar(0.75);
+			
+			&-title {
+				font-weight: bold;
+				@include abstract.block-margin-adjust(0.5, 0.5);
+			}
+
+			&-reviewer, &-postedAt, &-rating, &-comment {
+				@include abstract.initSpace();
+			}
+
+			&-reviewer, &-postedAt {
+				display: inline;
+				text-align: right;
+			}
+
+			&-postedAt {
+				&::after {
+					content: "：";
+				}
+			}
+
+			&-comment {
+				@include abstract.block-margin-adjust(0.5, 0.125);
+			}
+		}
+	}
+
+	.post {
+		&__fieldset {
+			border: 0;
+		}
+		&__row {
+			display: grid;
+			grid-template-columns: 5rem 5rem 5rem 5rem 1fr;
+			align-items: center;
+		}
+
+		&__heading,  &__rating-title {
+			color: abstract.$accent-color;
+			background-color: abstract.$sub-color;
+		}
+
+		&__rating-label {
+			font-size: abstract.calcSizeByScaledChar(1);
+		}
+		&__controls {
+			width: abstract.calcSizeByScaledChar(45);
+			margin: 0 auto;
+			@include abstract.block-margin-adjust($top: 1.5, $bottom: 0.75);
+			.table__heading {
+				width: abstract.calcSizeByScaledChar(7);
+			}
+		}
+
+		&__text {
+			&[name="review"] {
+				height: abstract.calcSizeByScaledChar(6);
+				width: abstract.calcSizeByScaledChar(34);
+			}
+		}
+
+		&__action {
+			text-align: center;
+		}
+		&__button {
+			width: abstract.calcSizeByScaledChar(4);
+			padding: abstract.calcSizeByScaledChar(0.25) abstract.calcSizeByScaledChar(1.0);
+		}
+	}
+}

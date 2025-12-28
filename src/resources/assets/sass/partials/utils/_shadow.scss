@@ -1,0 +1,7 @@
+@charset "utf-8";
+@forward "../abstracts/theme";
+@use "../abstracts/" as *;
+
+.u-shadow-sm {
+	box-shadow: 10px 10px 15px -10px;
+}

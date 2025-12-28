@@ -1,0 +1,13 @@
+@forward "./partials/abstracts/";
+@use "./partials/abstracts/" as *;
+
+// calcSizeByScaledChar($scale)のテストケース
+testCalcSizeByScaledChar {
+	width: calcSizeByScaledChar(1);   /*［1文字を指定した場合］ width: 1.4rem; */
+	width: calcSizeByScaledChar();    /*［引数を省略した場合］width: 1.4rem; */
+	width: calcSizeByScaledChar(10);  /*［通常の文字数を指定した場合］ width: 14rem; */
+	width: calcSizeByScaledChar(0);   /*［0を指定した場合］ width: 0rem;*/
+	width: calcSizeByScaledChar(-2);  /*［負の文字数を指定した場合］ width: 0rem; */
+	width: calcSizeByScaledChar(1.5); /*［小数を指定した場合］ width: 2.1rem; */
+}
+

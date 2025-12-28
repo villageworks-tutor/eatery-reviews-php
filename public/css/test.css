@@ -1,0 +1,9 @@
+@charset "UTF-8";
+testCalcSizeByScaledChar {
+  width: 1.4rem; /*［1文字を指定した場合］ width: 1.4rem; */
+  width: 1.4rem; /*［引数を省略した場合］width: 1.4rem; */
+  width: 14rem; /*［通常の文字数を指定した場合］ width: 14rem; */
+  width: 0rem; /*［0を指定した場合］ width: 0rem;*/
+  width: 0rem; /*［負の文字数を指定した場合］ width: 0rem; */
+  width: 2.1rem; /*［小数を指定した場合］ width: 2.1rem; */
+}/*# sourceMappingURL=test.css.map */

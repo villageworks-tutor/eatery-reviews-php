@@ -1,0 +1,20 @@
+@charset "utf-8";
+@forward "./typography";
+@use "./typography" as *;
+@use "sass:math";
+
+//==========================================================
+// 標準フォントサイズ（$default-font-size）を基準に、
+// 指定した文字数分のサイズ（単位：rem）を計算する
+//
+//  @param  $scale 基準フォントサイズに対する文字数
+//                 省略時は 1（= 1文字分）
+//  @return 指定した文字数分のサイズ（単位：rem）
+//          レイアウト破綻を防ぐため、引数が負数の場合は 0rem を返す
+//==========================================================
+@function calcSizeByScaledChar($scale: 1.0) {
+	@if ($scale < 0) {
+		@return 0rem;
+	}
+	@return $default-font-size * $scale;
+}

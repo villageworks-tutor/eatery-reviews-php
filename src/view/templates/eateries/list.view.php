@@ -1,17 +1,23 @@
 		<article class="list">
-			<h2 class="header__page-title">レストラン一覧</h2>
+			<h2 class="header__page-title"><?= $title ?></h2>
 
 			<!-- 検索条件 -->
 			<section class="criteria">
-				<form class="criteria__form" action="list.php" method="post">
+				<form class="criteria__form" action="<?= $base ?>/list" method="get">
 					<div class="criteria__controls">
 						<div class="criteria__select-wrapper">
 							<select class="criteria__select" name="area">
-								<option class="criteria__option" value="">選択してください</option>
+								<option class="criteria__option" value="0">地域を選択してください</option>
 								<?php foreach ($areas as $area): ?>
+									<?php if ($area->getId() === $selectedAreaId): ?>
+									<option selected class="criteria__option" value="<?= $area->getId() ?>">
+										<?= $area->getName() ?>
+									</option>
+									<?php else: ?>
 									<option class="criteria__option" value="<?= $area->getId() ?>">
 										<?= $area->getName() ?>
 									</option>
+									<?php endif; ?>
 								<?php endforeach; ?>
 							</select>
 						</div>

@@ -24,16 +24,15 @@ $base = Configures::BASE_PATH;
 
 // ルーティング設定
 $router = new Router();
-// $router->addRoute(new Route("{$base}/", HomeController::class, "index"));
-// $router->addRoute(new Route("{$base}/hoge", HomeController::class, "hoge"));
-$router->addRoute(new Route("{$base}/", EateryController::class, "index"));
+$router->addRoute(new Route("{$base}/", EateryController::class, "index"));    // 初期画面表示
+$router->addRoute(new Route("{$base}/list", EateryController::class, "list")); // 地域別レストラン一覧表示
 
 // リクエストオブジェクトをインスタンス化
 $request = new Request();
 
 // ルートの判定
 $route = $router->match($request);
-if ($router === null) {
+if ($route === null) {
 	http_response_code(404);
 	echo "ページが見つかりません";
 	exit;

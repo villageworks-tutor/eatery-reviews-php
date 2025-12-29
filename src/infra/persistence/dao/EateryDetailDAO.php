@@ -2,6 +2,7 @@
 namespace App\infra\persistence\dao;
 
 use App\infra\persistence\dao\BaseDAO;
+use App\infra\persistence\dao\DAOException;
 use PDO;
 
 class EateryDetailDAO extends BaseDAO {
@@ -42,16 +43,20 @@ class EateryDetailDAO extends BaseDAO {
 	 * @return EateryDetailのインスタンス
 	 */
 	public function findById($id) {
-		// SQL実行オブジェクトを取得
-		$pstmt = $this->pdo->prepare(self::SQL_FIND_EATERY_JOIN_AREA);
-		// パラメータバインディング
-		$pstmt->bindValue(":id", $id, PDO::PARAM_INT);
-		// SQLの実行
-		$pstmt->execute();
-		// 実行結果をリストに変換
-		$row = $pstmt->fetch(PDO::FETCH_ASSOC);
-		// リストを返却
-		return $row ?: null;
+		try {
+			// SQL実行オブジェクトを取得
+			$pstmt = $this->pdo->prepare(self::SQL_FIND_EATERY_JOIN_AREA);
+			// パラメータバインディング
+			$pstmt->bindValue(":id", $id, PDO::PARAM_INT);
+			// SQLの実行
+			$pstmt->execute();
+			// 実行結果をリストに変換
+			$row = $pstmt->fetch(PDO::FETCH_ASSOC);
+			// リストを返却
+			return $row ?: null;
+		} catch (\PDOException $e) {
+			throw new DAOException("レコードの取得に失敗しました\n" . $e->getMessage() , $e);
+		}
 	}
 
 

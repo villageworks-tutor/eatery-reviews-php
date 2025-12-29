@@ -5,6 +5,7 @@ use App\infra\persistence\dao\EateryDetailDAO;
 use App\application\entity\EateryDetail;
 use App\application\form\dto\EateryDetailDTO;
 use App\application\service\BaseService;
+use App\application\service\ServiceException;
 
 /**
  * レストラン詳細に関する処理を実行するクラス
@@ -24,13 +25,17 @@ class EateryDetailService extends BaseService {
 	 * @return レストラン詳細
 	 */
 	public function getDetail(int $id):EateryDetailDTO {
-		$result = $this->dao->findById($id);
-		if ($result === null) {
-			throw new NotFoundException();
+		try {
+			$result = $this->dao->findById($id);
+			if ($result === null) {
+				throw new NotFoundException();
+			}
+			$eateryDetail = $this->convertResultToEntity($result);
+			$eateryDetailDto = $this->convertEntityToDto($eateryDetail);
+			return $eateryDetailDto;
+		} catch (DAOException $e) {
+			throw new ServiceException("レストラン詳細情報作成に失敗しました\n" . $e->getMessage() , $e);
 		}
-		$eateryDetail = $this->convertResultToEntity($result);
-		$eateryDetailDto = $this->convertEntityToDto($eateryDetail);
-		return $eateryDetailDto;
 	}
 
 	/**

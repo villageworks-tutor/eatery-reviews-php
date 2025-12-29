@@ -2,6 +2,7 @@
 namespace App\infra\persistence\dao;
 
 use App\infra\persistence\dao\BaseDAO;
+use App\infra\persistemce\dao\DAOException;
 use PDO;
 
 /**
@@ -46,15 +47,19 @@ class EateryDAO extends BaseDAO {
 	 * @return 結果リスト
 	 */
 	public function findByArea(int $area):array {
-		// SQL実行オブジェクトを取得
-		$pstmt = $this->pdo->prepare(self::SQL_FIND_BY_AREA);
-		// パラメータバインディング
-		$pstmt->bindValue(":area", $area, PDO::PARAM_INT);
-		// SQLの実行
-		$pstmt->execute();
-		// 実行結果をリストに変換
-		$eateries = $pstmt->fetchAll(PDO::FETCH_ASSOC);
-		// リストを返却
-		return $eateries;
+		try {
+			// SQL実行オブジェクトを取得
+			$pstmt = $this->pdo->prepare(self::SQL_FIND_BY_AREA);
+			// パラメータバインディング
+			$pstmt->bindValue(":area", $area, PDO::PARAM_INT);
+			// SQLの実行
+			$pstmt->execute();
+			// 実行結果をリストに変換
+			$eateries = $pstmt->fetchAll(PDO::FETCH_ASSOC);
+			// リストを返却
+			return $eateries;
+		} catch (\PDOException $e) {
+			throw new DAOException("レコードの取得に失敗しました\n" . $e->getMessage() , $e);
+		}
 	}
 }

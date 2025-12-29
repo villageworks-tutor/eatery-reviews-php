@@ -1,7 +1,9 @@
 <?php
 namespace App\infra\persistence\dao;
-use PDO;
+
 use App\infra\persistence\dao\BaseDAO;
+use App\infra\persistence\dao\DAOException;
+use PDO;
 
 /**
  * areasテーブルのCRUD操作を実行するクラス
@@ -30,9 +32,13 @@ class AreaDAO extends BaseDAO {
 	 * areasテーブルの全件検索を実行する
 	 */
 	public function findAll():array {
-		$stmt = $this->pdo->query(self::SQL_FIND_ALL);
-		$areas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-		return $areas;
+		try {
+			$stmt = $this->pdo->query(self::SQL_FIND_ALL);
+			$areas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			return $areas;
+		} catch (\PDOException $e) {
+			throw new DAOException("レコードの取得に失敗しました\n" . $e->getMessage() , $e);
+		}
 	}
 
 }

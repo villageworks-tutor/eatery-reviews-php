@@ -10,6 +10,7 @@ use App\application\controller\BaseController;
 use App\application\service\AreaService;
 use App\application\service\EateryService;
 use App\application\service\EateryDetailService;
+use App\application\service\ServiceException;
 
 /**
  * レストランに関する処理を制御するコントローラ
@@ -42,7 +43,7 @@ class EateryController extends BaseController	{
 			// レイアウトに組み込んで出力
 			$this->renderLayout($title);
 
-		} catch (\PDOException $e) {
+		} catch (ServiceException $e) {
 			// ログ出力
 			error_log($e->getMessage());
 			// ユーザ向けメッセージ
@@ -82,7 +83,7 @@ class EateryController extends BaseController	{
 			// レイアウトに組み込んで出力
 			$this->renderLayout($title);
 			
-		} catch (\PDOException $e) {
+		} catch (ServiceException $e) {
 			// ログ出力
 			error_log($e->getMessage());
 			// ユーザ向けメッセージ
@@ -110,7 +111,7 @@ class EateryController extends BaseController	{
 			]))->render();
 			// レイアウトに組み込んで出力
 			$this->renderLayout("レストラン詳細情報");
-		} catch (\PDOException $e) {
+		} catch (ServiceException $e) {
 			// ログ出力
 			error_log($e->getMessage());
 			// ユーザ向けメッセージ

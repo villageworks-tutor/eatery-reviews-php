@@ -44,7 +44,7 @@
 								<?= $restaurant->getDescription() ?>
 							</div>
 							<div class="result__item-link">
-								<a class="result__item-link-anchor" href="detail.html?id=<?= $restaurant->getId() ?>">詳細</a>
+								<a class="result__item-link-anchor" href="<?= $base ?>/detail?id=<?= $restaurant->getId() ?>">詳細</a>
 							</div>
 						</dd>
 					</dl>

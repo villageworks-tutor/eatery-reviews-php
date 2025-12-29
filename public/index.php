@@ -24,8 +24,9 @@ $base = Configures::BASE_PATH;
 
 // ルーティング設定
 $router = new Router();
-$router->addRoute(new Route("{$base}/", EateryController::class, "index"));    // 初期画面表示
-$router->addRoute(new Route("{$base}/list", EateryController::class, "list")); // 地域別レストラン一覧表示
+$router->addRoute(new Route("{$base}/", EateryController::class, "index"));        // 初期画面表示
+$router->addRoute(new Route("{$base}/list", EateryController::class, "list"));     // 地域別レストラン一覧表示
+$router->addRoute(new Route("{$base}/detail", EateryController::class, "detail")); // レストラン詳細表示
 
 // リクエストオブジェクトをインスタンス化
 $request = new Request();

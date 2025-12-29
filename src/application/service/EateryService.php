@@ -1,22 +1,30 @@
 <?php
 namespace App\application\service;
-use App\infra\persistence\dao\EateryDAO;
+
 use App\application\entity\Eatery;
+use App\application\service\BaseService;
+use App\infra\persistence\dao\EateryDAO;
 
 /**
  * レストランに関する処理を実行するクラス
  */
-class EateryService {
+class EateryService extends BaseService {
 
 	private const AREA_ALL = 0;
+
+	/**
+	 * コンストラクタ
+	 */
+	public function __construct() {
+		parent::__construct(EateryDAO::class);
+	}
 
 	/**
 	 * すべてのレストランを取得する（初期表示）
 	 * @return レストランリスト
 	 */
 	public function getAllEatery() {
-		$dao = new EateryDAO();
-		$eateries = $dao->findAll();
+		$eateries = $this->dao->findAll();
 		$eateryList = $this->convertResultsToList($eateries);
 		return $eateryList;
 	}

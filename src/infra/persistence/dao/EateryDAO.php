@@ -1,5 +1,6 @@
 <?php
 namespace App\infra\persistence\dao;
+
 use App\infra\persistence\dao\BaseDAO;
 use PDO;
 

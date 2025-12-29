@@ -1,12 +1,15 @@
 <?php
 namespace App\application\controller;
+
 use PDO;
 use App\infra\config\Configures;
 use App\infra\http\Request;
 use App\view\View;
+
 use App\application\controller\BaseController;
 use App\application\service\AreaService;
 use App\application\service\EateryService;
+use App\application\service\EateryDetailService;
 
 /**
  * レストランに関する処理を制御するコントローラ
@@ -79,6 +82,34 @@ class EateryController extends BaseController	{
 			// レイアウトに組み込んで出力
 			$this->renderLayout($title);
 			
+		} catch (\PDOException $e) {
+			// ログ出力
+			error_log($e->getMessage());
+			// ユーザ向けメッセージ
+			$this->contents[] = "データベースエラーが発生しました。";
+      $this->renderLayout("エラー");			
+		}
+	}
+
+	/**
+	 * レストラン詳細を表示する
+	 */
+	public function detail(Request $request) {
+		// リクエストパラメータを取得
+		$id = (int)($request->query["id"] ?? 0);
+
+		try {
+
+			// EateryDetailServiceをインスタンス化
+			$service = new EateryDetailService();
+			$eatery = $service->getDetail($id);
+
+			$this->contents[] = (new View("eateries/detail", [
+				"eatery" => $eatery,
+				"base" => Configures::BASE_PATH
+			]))->render();
+			// レイアウトに組み込んで出力
+			$this->renderLayout("レストラン詳細情報");
 		} catch (\PDOException $e) {
 			// ログ出力
 			error_log($e->getMessage());

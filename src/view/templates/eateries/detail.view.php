@@ -23,36 +23,20 @@
 			<section class="reviews">
 				<h2 class="header__section-title">口コミ</h2>
 				<div class="review__list">
+				<?php if (count($reviews) > 0): // レビュ件数が1以上ある場合は表示する ?>
+				<?php foreach ($reviews as $review):	?>
 					<dl class="review__item">
-						<dd class="review__item-rating">★★★★☆</dd>
-						<dt class="review__item-title">
-							運が良いと電車が見られる窓側に案内される
-						</dt>
-						<dd class="review__item-postedAt">2023年6月21日</dd>
-						<dd class="review__item-reviewer">user01</dd>
-						<dd class="review__item-comment">
-							2025年11月日曜日18:00往訪。満席のため20分程度待って入店。以下をオーダーしました。<br />
-							ほぼ、毎回固定化されたオーダーです。<br />
-							パスタ系はどうしても水っぽさがありますが、ミラノ風ドリアは美味。
-							ほうれん草のソテーは様々な商品とよく合い万能アイテム。
-						</dd>
+						<dd class="review__item-rating"><?= $review->getRating() ?></dd>
+						<dt class="review__item-title"><?= $review->getTitle() ?></dt>
+						<dd class="review__item-postedAt"><?= $review->getPostedAt() ?></dd>
+						<dd class="review__item-reviewer"><?= $review->getHandle() ?></dd>
+						<dd class="review__item-comment"><?= $review->getComment() ?></dd>
 					</dl>
-					<dl class="review__item">
-						<dd class="review__item-rating">★★★★☆</dd>
-						<dt class="review__item-title">
-							運が良いと電車が見られる窓側に案内される
-						</dt>
-						<dd class="review__item-postedAt">2023年6月21日</dd>
-						<dd class="review__item-reviewer">user01</dd>
-						<dd class="review__item-comment">
-							2025年11月日曜日18:00往訪。満席のため20分程度待って入店。以下をオーダーしました。<br />
-							ほぼ、毎回固定化されたオーダーです。<br />
-							パスタ系はどうしても水っぽさがありますが、ミラノ風ドリアは美味。
-							ほうれん草のソテーは様々な商品とよく合い万能アイテム。
-						</dd>
-					</dl>
+				<?php endforeach; ?>
+				<?php endif; ?>	
 				</div>
 			</section>
+
 			<section class="post">
 				<h2 class="header__section-title">口コミを書き込む</h2>
 				<form class="post__form" action="detail.php" method="post">

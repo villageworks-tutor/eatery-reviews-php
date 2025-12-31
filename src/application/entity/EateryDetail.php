@@ -153,7 +153,7 @@ class EateryDetail {
 					'name'				=> $this->name,
 					'address'		  => $this->address,
 					'description' => $this->description,
-					'image'			  => $this->image,
+					'image'			  => $this->image
 			];
 	}
 

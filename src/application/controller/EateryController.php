@@ -10,6 +10,7 @@ use App\application\controller\BaseController;
 use App\application\service\AreaService;
 use App\application\service\EateryService;
 use App\application\service\EateryDetailService;
+use App\application\service\ReviewDetailService;
 use App\application\service\ServiceException;
 
 /**
@@ -101,12 +102,17 @@ class EateryController extends BaseController	{
 
 		try {
 
-			// EateryDetailServiceをインスタンス化
+			// レストラン詳細を取得
 			$service = new EateryDetailService();
 			$eatery = $service->getDetail($id);
 
+			// レビュリストを取得
+			$reviewDetailService = new ReviewDetailService();
+			$reviews = $reviewDetailService->getReviewsByEateryId($id);
+
 			$this->contents[] = (new View("eateries/detail", [
-				"eatery" => $eatery,
+				"eatery"  => $eatery,
+				"reviews" => $reviews,
 				"base" => Configures::BASE_PATH
 			]))->render();
 			// レイアウトに組み込んで出力

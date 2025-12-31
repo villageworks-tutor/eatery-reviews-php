@@ -12,6 +12,7 @@ use App\application\service\EateryService;
 use App\application\service\EateryDetailService;
 use App\application\service\ReviewDetailService;
 use App\application\service\ServiceException;
+use App\application\config\ReviewConfigure;
 
 /**
  * レストランに関する処理を制御するコントローラ
@@ -113,6 +114,8 @@ class EateryController extends BaseController	{
 			$this->contents[] = (new View("eateries/detail", [
 				"eatery"  => $eatery,
 				"reviews" => $reviews,
+				"maxRating" => ReviewConfigure::MAX_RATING,
+				"defaultRating" => ReviewConfigure::DEFAULT_RATING,
 				"base" => Configures::BASE_PATH
 			]))->render();
 			// レイアウトに組み込んで出力

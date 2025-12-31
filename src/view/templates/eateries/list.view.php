@@ -9,7 +9,7 @@
 							<select class="criteria__select" name="area">
 								<option class="criteria__option" value="0">地域を選択してください</option>
 								<?php foreach ($areas as $area): ?>
-									<?php if ($area->getId() === $selectedAreaId): ?>
+									<?php if ($area->getId() === $selectedAreaId): /* option タグのように要素構造が変わるので、if/else を使った。*/ ?>
 									<option selected class="criteria__option" value="<?= $area->getId() ?>">
 										<?= $area->getName() ?>
 									</option>

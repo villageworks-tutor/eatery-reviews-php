@@ -7,15 +7,11 @@
 						<img class="eatery__image--body" src="<?= $base ?>/image/<?= $eatery->getImage() ?>" alt="<?= $eatery->getName() ?>" />
 					</dt>
 					<dd class="eatery__content">
-						<!-- <div class="eatery__name">
-							<?= $eatery->getName() ?>
-						</div> -->
 						<div class="eatery__description">
 							<?= $eatery->getDescription() ?>
 						</div>
 						<div class="eatery__contact">
 							<div class="eatery__address"><?= $eatery->getAddress() ?></div>
-							<!-- <div class="eatery__phone">000-0000-0000</div> -->
 						</div>
 					</dd>
 				</dl>
@@ -64,26 +60,16 @@
 							<td class="table__cell">
 								<fieldset class="post__fieldset">
 									<div class="post__row">
+										<?php for ($i = 1; $i <= $maxRating; $i++): ?>
 										<div class="post__radio-wrapper">
-											<input type="radio" class="post__radio" id="rate1" name="rating" value="1" />
-											<label for="rate1">1</label>
+											<input
+											<?php if ($i === $defaultRating): /* checked属性は有無だけで表現できるため、ifのみで記述した */ ?>
+												checked
+											<?php endif; ?>
+											type="radio" class="post__radio" id="rate<?= $i ?>" name="rating" value="<?= $i ?>" />
+											<label for="rate<?= $i ?>"><?= $i ?></label>
 										</div>
-										<div class="post__radio-wrapper">
-											<input type="radio" class="post__radio" id="rate2" name="rating" value="2" />
-											<label for="rate2">2</label>
-										</div>
-										<div class="post__radio-wrapper">
-											<input type="radio" class="post__radio" id="rate3" name="rating" value="3" checked />
-											<label for="rate3">3</label>
-										</div>
-										<div class="post__radio-wrapper">
-											<input type="radio" class="post__radio" id="rate4" name="rating" value="4" />
-											<label for="rate4">4</label>
-										</div>
-										<div class="post__radio-wrapper">
-											<input type="radio" class="post__radio" id="rate5" name="rating" value="5" />
-											<label for="rate5">5</label>
-										</div>
+										<?php endfor; ?>
 									</div>
 								</fieldset>
 							</td>

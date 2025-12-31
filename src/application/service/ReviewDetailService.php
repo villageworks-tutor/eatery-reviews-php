@@ -7,6 +7,7 @@ use App\application\service\ServiceException;
 use App\infra\persistence\dao\DAOException;
 use App\infra\persistence\dao\ReviewDetailDAO;
 use App\application\form\dto\ReviewDetailDTO;
+use App\application\config\ReviewConfigure;
 
 /**
  * 表示レビュに関する処理を実行するサービス
@@ -86,7 +87,7 @@ class ReviewDetailService extends BaseService {
 	private function convertPointsToStars(int $rating):string {
 		$maxPoint = 5; // TODO: 評価ポイント表示の繰り返し回数と連動させる？
 		$stars = "";
-		for ($i = 0; $i < $maxPoint; $i++) {
+		for ($i = 0; $i < ReviewConfigure::MAX_RATING; $i++) {
 			if ($i < $rating) {
 				$stars .= "★";
 			} else {

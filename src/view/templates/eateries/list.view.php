@@ -32,7 +32,7 @@
 					<?php foreach ($restaurants as $restaurant): ?>
 					<dl class="result__item u-shadow-sm">
 						<dt class="result__item-image">
-							<img src="<?= $base ?>/img/<?= $restaurant->getImage() ?>" 
+							<img src="<?= $base ?>/image/<?= $restaurant->getImage() ?>" 
 							     alt="<?= $restaurant->getName() ?>" 
 									 width="110">
 						</dt>

@@ -1,0 +1,32 @@
+@charset "utf-8";
+@forward "../abstracts/";
+@use "../abstracts/" as abstract;
+
+.review {
+	&__body {
+		&-wrapper {
+			padding: 0 abstract.calcSizeByScaledChar(1.25);
+		}
+	}
+	&__table {
+		border-collapse: collapse;
+	}
+	&__controls {
+		@include abstract.block-margin-adjust($top: 0.75, $bottom: 1.25);
+    text-align: center;
+	}
+  &__button {
+    &--post {
+      background-color: abstract.$sub-color;    /* サブカラー */
+      color: #fff;
+      border: 1px solid abstract.$main-color;   /* メインカラー */
+      &:hover {
+        background-color: abstract.$main-color; /* メインカラー */
+        border-color: abstract.$main-color;     /* メインカラー */ 
+      }
+    }
+    &--edit {
+      background-color: abstract.$button-border-color;
+    }
+  }
+}

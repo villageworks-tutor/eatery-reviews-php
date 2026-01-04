@@ -1,26 +1,25 @@
 <?php
-namespace App\appliication\entity;
+namespace App\application\entity;
 
 class Review {
 	/**
 	 * フィールド
 	 */
-	private int    $id;        // レビュID
+	private ?int    $id;        // レビュID
 	private int    $eateryId;  // レストランID
 	private int    $reviewer;  // 投稿者ID
 	private string $title;     // 投稿タイトル
 	private string $comment;   // 投稿内容
 	private int    $rating;    // 評価ポイント
-	private string $image;     // 画像ファイル名
-	private string $postedAt;  // 投稿日
-	private string $updatedAt; // 更新日
+	private ?string $image;     // 画像ファイル名
+	private ?string $postedAt;  // 投稿日
+	private ?string $updatedAt; // 更新日
 
 	/**
 	 * 引数付きコンストラクタ
 	 */
-	public function __construct(int $id, int $eateryId, int $reviewer, 
-                              string $title, string $comment, int $rating, 
-															string $postedAt, string $updatedAt) {
+	public function __construct(int $eateryId, int $reviewer, string $title, string $comment, int $rating, 
+															?int $id = null, ?string $image = null, ?string $postedAt = null, ?string $updatedAt = null) {
 		$this->id = $id;
 		$this->eateryId = $eateryId;
 		$this->reviewer = $reviewer;
@@ -35,8 +34,8 @@ class Review {
 	/**
 	 * アクセサメソッド
 	 */
-	public function getId():int {return $this->id;}
-	public function setId(int $id):void {$this->id = $id;}
+	public function getId():?int {return $this->id;}
+	public function setId(?int $id):void {$this->id = $id;}
 	public function getEateryId():int {return $this->eateryId;}
 	public function setEateryId(int $eateryId):void {$this->eateryId = $eateryId;}
 	public function getReviewer():int {return $this->reviewer;}
@@ -47,12 +46,12 @@ class Review {
 	public function setComment(string $comment):void {$this->comment = $comment;}
 	public function getRating():int {return $this->rating;}
 	public function setRating(int $rating):void {$this->rating = $rating;}
-	public function getimage():string {return $this->image;}
-	public function setimage(string $image):void {$this->image = $image;}
-	public function getPostedAt():string {return $this->postedAt;}
-	public function setPostedAt(string $postedAt):void {$this->postedAt = $postedAt;}
-	public function getUpdatedAt():string {return $this->updatedAt;}
-	public function setUpdatedAt(string $updateAt):void {$this->updatedAt = $updatedAt;}
+	public function getimage():?string {return $this->image;}
+	public function setimage(?string $image):void {$this->image = $image;}
+	public function getPostedAt():?string {return $this->postedAt;}
+	public function setPostedAt(?string $postedAt):void {$this->postedAt = $postedAt;}
+	public function getUpdatedAt():?string {return $this->updatedAt;}
+	public function setUpdatedAt(?string $updateAt):void {$this->updatedAt = $updatedAt;}
 
 	/**
 	 * テストおよび比較処理のための正規文字列表現を返す。

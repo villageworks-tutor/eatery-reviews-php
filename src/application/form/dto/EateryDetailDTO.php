@@ -9,6 +9,7 @@ class EateryDetailDTO {
 	/**
 	 * フィールド
 	 */
+	private string $id;          // レストランID 
 	private string $areaName;    // 地域名
 	private string $name;        // レストラン名
 	private string $address;     // 所在地
@@ -18,18 +19,28 @@ class EateryDetailDTO {
 
 	/**
 	 * コンストラクタ
+	 * @param $id          レストランID
 	 * @param $areaName    地域名
 	 * @param $name        レストラン名
 	 * @param $address     所在地
 	 * @param $description 紹介文
 	 * @param $image       画像ファイル名
 	 */
-	public function __construct($areaName, $name, $address, $description, $image) {
+	public function __construct(int $id, string $areaName, string $name, string $address, string $description, string $image) {
+		$this->id = (string) $id;
 		$this->areaName = $areaName;
 		$this->name = $name;
 		$this->address = $address;
 		$this->description = $description;
 		$this->image = $image;
+	}
+
+	public function getId():string {
+		return $this->id;
+	}
+
+	public function setId(int $id):void {
+		$this->id = (string) $id;
 	}
 
 	public function getAreaName():string {
@@ -102,9 +113,10 @@ class EateryDetailDTO {
 	public function toString():string {
 		$output = "";
 		$output .= "EateryDetail = [";
-		$output .= "areaName = "    . $this->toCanonicalArray()["areaName"] . ", ";
-		$output .= "name = "        . $this->toCanonicalArray()["name"] . ", ";
-		$output .= "address = "     . $this->toCanonicalArray()["address"] . ", ";
+		$output .= "id = "          . $this->toCanonicalArray()["id"]          . ", "; 
+		$output .= "areaName = "    . $this->toCanonicalArray()["areaName"]    . ", ";
+		$output .= "name = "        . $this->toCanonicalArray()["name"]        . ", ";
+		$output .= "address = "     . $this->toCanonicalArray()["address"]     . ", ";
 		$output .= "description = " . $this->toCanonicalArray()["description"] . ", ";
 		$output .= "image = "       . $this->toCanonicalArray()["image"];
 		$output .= "]";
@@ -124,6 +136,7 @@ class EateryDetailDTO {
 	 */
 	private function toCanonicalArray(): array {
 			return [
+					'id'          => $this->id,
 					'areaName'		=> $this->areaName,
 					'name'				=> $this->name,
 					'address'		  => $this->address,

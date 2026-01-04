@@ -131,6 +131,8 @@ body {
 .table__heading, .table__cell {
   border: 1px solid green;
   padding: 0.35rem 1.05rem;
+}
+.table__heading {
   word-break: keep-all;
 }
 .table--borderless .table__heading, .table--borderless .table__cell {
@@ -226,6 +228,40 @@ body {
 .detail .post__button {
   width: 5.6rem;
   padding: 0.35rem 1.4rem;
+}
+
+.auth__table {
+  margin: 1.75rem auto;
+}
+.auth__action {
+  text-align: center;
+}
+.auth__link {
+  margin-left: 3.85rem;
+}
+
+.review__body-wrapper {
+  padding: 0 1.75rem;
+}
+.review__table {
+  border-collapse: collapse;
+}
+.review__controls {
+  margin-top: 1.05rem;
+  margin-bottom: 1.75rem;
+  text-align: center;
+}
+.review__button--post {
+  background-color: seagreen; /* サブカラー */
+  color: #fff;
+  border: 1px solid green; /* メインカラー */
+}
+.review__button--post:hover {
+  background-color: green; /* メインカラー */
+  border-color: green; /* メインカラー */
+}
+.review__button--edit {
+  background-color: lightgray;
 }
 
 .u-text-left {

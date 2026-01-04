@@ -111,15 +111,21 @@ class EateryController extends BaseController	{
 			$reviewDetailService = new ReviewDetailService();
 			$reviews = $reviewDetailService->getReviewsByEateryId($id);
 
+			// フラッシュメッセージを取得
+			$message = $_SESSION["flash_message"] ?? null;
+			unset($_SESSION["flash_message"]);
+
 			$this->contents[] = (new View("eateries/detail", [
 				"eatery"  => $eatery,
 				"reviews" => $reviews,
 				"maxRating" => ReviewConfigure::MAX_RATING,
 				"defaultRating" => ReviewConfigure::DEFAULT_RATING,
+				"message" => $message,
 				"base" => Configures::BASE_PATH
 			]))->render();
 			// レイアウトに組み込んで出力
 			$this->renderLayout("レストラン詳細情報");
+			
 		} catch (ServiceException $e) {
 			// ログ出力
 			error_log($e->getMessage());

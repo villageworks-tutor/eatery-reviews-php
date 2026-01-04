@@ -63,6 +63,7 @@ class EateryDetailService extends BaseService {
 	 */
 	private function convertEntityToDto(EateryDetail $entity):EateryDetailDTO {
 		$dto = new EateryDetailDTO(
+			id:          $entity->getId(),
 			areaName:    $entity->getAreaName(),
 			name:        $entity->getName(),
 			address:     $entity->getAddress(),

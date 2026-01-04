@@ -2,51 +2,48 @@
 namespace App\application\form\dto;
 
 /**
- * レビュ表示用の情報を管理するDTOクラス
+ * レビュ確認用の情報を管理するDTOクラス
  */
-class ReviewDetailDTO {
+class ReviewPostDTO {
+	
 	/**
 	 * フィールド
 	 */
-	private int    $id;        // レビュID
-	private string $handle;    // 投稿者ID
-	private string $title;     // 投稿タイトル
-	private string $comment;   // 投稿内容
-	private string $rating;    // 評価ポイント
-	private string $image;     // 画像ファイル名
-	private string $postedAt;  // 投稿日
+	private string $eateryId;   // レストランID
+	private string $handleId;   // 投稿者ID
+	private string $handleName; // 投稿者ハンドル名
+	private string $title;      // 投稿タイトル
+	private string $comment;    // 投稿内容
+	private string $rating;     // 評価ポイント
 
 	/**
 	 * 引数付きコンストラクタ
 	 */
-	public function __construct(int $id, string $handle, string $title, 
-	                            string $comment, string $rating, string $image,string $postedAt) {
-		$this->id = $id;
-		$this->handle = $handle;
+	public function __construct(string $eateryId, string $handleId, string $handleName, string $title, 
+	                            string $comment, string $rating) {
+		$this->eateryId = $eateryId;
+		$this->handleId = $handleId;
+		$this->handleName = $handleName;
 		$this->title = $title;
 		$this->comment = $comment;
 		$this->rating = $rating;
-		$this->image = $image;
-		$this->postedAt = $postedAt;
 	}
 
 	/**
 	 * アクセサメソッド
 	 */
-	public function getId():int {return $this->id;}
-	public function setId(int $id):void {$this->id = $id;}
-	public function gethandle():string {return $this->handle;}
-	public function setHandle(string $handle):void {$this->handle = $handle;}
+	public function getEateryId():string {return $this->eateryId;}
+	public function setEateryId(string $eateryId):void {$this->eateryId = $eaterId;}
+	public function getHandleId():string {return $this->handleId;}
+	public function setHandleId(string $handleId):void {$this->handleId = $handleId;}
+	public function getHandleName():string {return $this->handleName;}
+	public function setHandleName(string $handleName):void {$this->handleName = $handleName;}
 	public function getTitle():string {return $this->title;}
 	public function setTitle(string $title):void {$this->title = $title;}
 	public function getComment():string {return $this->comment;}
 	public function setComment(string $comment):void {$this->comment = $comment;}
 	public function getRating():string {return $this->rating;}
 	public function setRating(string $rating):void {$this->rating = $rating;}
-	public function getimage():string {return $this->image;}
-	public function setimage(string $image):void {$this->image = $image;}
-	public function getPostedAt():string {return $this->postedAt;}
-	public function setPostedAt(string $postedAt):void {$this->postedAt = $postedAt;}
 
 	/**
 	 * テストおよび比較処理のための正規文字列表現を返す。
@@ -77,14 +74,13 @@ class ReviewDetailDTO {
 	 */
 	public function toString():string {
 		$output = "";
-		$output .= "ReviewDTO = [";
-		$output .= "id = "			  . $this->toCanonicalArray()["id"]      . ", ";
-		$output .= "handle = "    . $this->toCanonicalArray()["handle"]  . ", ";
-		$output .= "title = "     . $this->toCanonicalArray()["title"]   . ", ";
-		$output .= "comment = "   . $this->toCanonicalArray()["comment"] . ", ";
-		$output .= "rating = "    . $this->toCanonicalArray()["rating"]  . ", ";
-		$output .= "image = "     . $this->toCanonicalArray()["image"]   . ", ";
-		$output .= "postedAt = "  . $this->toCanonicalArray()["postedAt"];
+		$output .= "ReviewPostDTO = [";
+		$output .= "eateryId = "   . $this->toCanonicalArray()["eateryId"]   . ", ";
+		$output .= "handleId = "   . $this->toCanonicalArray()["handleId"]   . ", ";
+		$output .= "handleName = " . $this->toCanonicalArray()["handleName"] . ", ";
+		$output .= "title = "      . $this->toCanonicalArray()["title"]      . ", ";
+		$output .= "comment = "    . $this->toCanonicalArray()["comment"]    . ", ";
+		$output .= "rating = "     . $this->toCanonicalArray()["rating"]     . ", ";
 		$output .= "]";
 		return $output;
 	}
@@ -102,13 +98,12 @@ class ReviewDetailDTO {
 	 */
 	private function toCanonicalArray(): array {
 			return [
-					'id'       => $this->id,
-					'handler'  => $this->handle,
-					'title'    => $this->title,
-					'comment'  => $this->comment,
-					'rating'   => $this->rating,
-					'image'    => $this->image,
-					'postedAt' => $this->postedAt
+					'eateryId'   => $this->eateryId,
+					'handleId'   => $this->handleId,
+					'handleName' => $this->handleName,
+					'title'      => $this->title,
+					'comment'    => $this->comment,
+					'rating'     => $this->rating
 			];
 	}
 

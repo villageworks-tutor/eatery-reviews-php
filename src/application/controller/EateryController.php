@@ -118,17 +118,21 @@ class EateryController extends BaseController	{
 			unset($_SESSION["flash_message"]);
 			$error = $_SESSION["error"] ?? null;
 			unset($_SESSION["error"]);
-			$reviewDto = $_SESSION["reviewDto"] ?? null;
-			unset($_SESSION["reviewDto"]);
 
-			$reviewDto = new ReviewPostDTO(
-				eateryId: $eatery->getId(), 
-				handleId: 2,
-				handleName: "totsuka",
-				title: "",
-				comment: "",
-				rating: ReviewConfigure::DEFAULT_RATING
-			);
+			if (isset($_SESSION["reviewDto"])) {
+				$reviewDto = $_SESSION["reviewDto"];
+				unset($_SESSION["reviewDto"]);
+			} else {
+				$reviewDto = new ReviewPostDTO(
+					eateryId: $eatery->getId(), 
+					handleId: 2,
+					handleName: "totsuka",
+					title: "",
+					comment: "",
+					rating: ReviewConfigure::DEFAULT_RATING
+				);
+			}
+
 
 			$this->contents[] = (new View("eateries/detail", [
 				"eatery"  => $eatery,

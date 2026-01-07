@@ -95,7 +95,7 @@
 												name="review" 
 												cols="30" 
 												rows="4"
-												><?= isset($reviewDto) ? htmlspecialchars(nl2br($reviewDto->getComment()), ENT_QUOTES, 'UTF-8') : "" ?></textarea>
+												><?= isset($reviewDto) ? htmlspecialchars($reviewDto->getComment(), ENT_QUOTES, 'UTF-8') : "" ?></textarea>
 						</td>
 					</tr>
 				</table>

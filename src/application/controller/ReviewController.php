@@ -19,6 +19,15 @@ use App\view\View;
  */
 class ReviewController extends BaseController {
 
+	public function edit(Request $request) {
+		// セッションからレビュDTOを取得
+		$reviewDto = $_SESSION["reviewDto"];
+		// リダイレクト先URLを生成して送信
+		$redirectURL = Configures::BASE_PATH."/detail?id=".$reviewDto->getEateryId();
+		header("Location: {$redirectURL}");
+		exit;
+	}
+
 	/**
 	 * レビュを投稿する
 	 * @param $request HTTPリクエストオブジェクト
@@ -79,10 +88,12 @@ class ReviewController extends BaseController {
 		}
 		$reviewDto->setTitle($subject);
 
+		// セッションに登録
+		$_SESSION["reviewDto"] = $reviewDto;
+
 		// 入力値チェック
 		if (!Validator::isRequired($reviewDto->getComment())) {
 			$_SESSION["error"] = "口コミは必須です。";
-			$_SESSION["review"] = $reviewDto;
 			$redirectURL = Configures::BASE_PATH . "/detail?id=" . $reviewDto->getEateryId();
 			header("Location: {$redirectURL}");
 			exit;

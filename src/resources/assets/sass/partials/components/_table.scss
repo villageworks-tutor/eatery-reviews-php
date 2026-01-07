@@ -44,6 +44,9 @@
 	&__heading, &__cell {
 		@include setBorders($color: abstract.$main-color);
 		@include setCellPaddings();
+	}
+
+	&__heading {
 		word-break: keep-all;
 	}
 

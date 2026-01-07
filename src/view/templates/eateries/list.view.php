@@ -9,7 +9,7 @@
 							<select class="criteria__select" name="area">
 								<option class="criteria__option" value="0">地域を選択してください</option>
 								<?php foreach ($areas as $area): ?>
-									<?php if ($area->getId() === $selectedAreaId): ?>
+									<?php if ($area->getId() === $selectedAreaId): /* option タグのように要素構造が変わるので、if/else を使った。*/ ?>
 									<option selected class="criteria__option" value="<?= $area->getId() ?>">
 										<?= $area->getName() ?>
 									</option>
@@ -32,7 +32,7 @@
 					<?php foreach ($restaurants as $restaurant): ?>
 					<dl class="result__item u-shadow-sm">
 						<dt class="result__item-image">
-							<img src="<?= $base ?>/img/<?= $restaurant->getImage() ?>" 
+							<img src="<?= $base ?>/image/<?= $restaurant->getImage() ?>" 
 							     alt="<?= $restaurant->getName() ?>" 
 									 width="110">
 						</dt>
@@ -44,7 +44,7 @@
 								<?= $restaurant->getDescription() ?>
 							</div>
 							<div class="result__item-link">
-								<a class="result__item-link-anchor" href="detail.html?id=<?= $restaurant->getId() ?>">詳細</a>
+								<a class="result__item-link-anchor" href="<?= $base ?>/detail?id=<?= $restaurant->getId() ?>">詳細</a>
 							</div>
 						</dd>
 					</dl>

@@ -1,0 +1,14 @@
+@charset "utf-8";
+@use "../abstracts/" as abstract;
+
+.auth {
+	&__table {
+		margin: abstract.calcSizeByScaledChar(1.25) auto;
+	}
+	&__action {
+		text-align: center;
+	}
+	&__link {
+		margin-left: abstract.calcSizeByScaledChar(2.75);
+	}
+}

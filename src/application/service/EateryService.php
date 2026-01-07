@@ -1,24 +1,37 @@
 <?php
 namespace App\application\service;
-use App\infra\persistence\dao\EateryDAO;
+
 use App\application\entity\Eatery;
+use App\application\service\BaseService;
+use App\application\service\ServiceException;
+use App\infra\persistence\dao\EateryDAO;
 
 /**
  * レストランに関する処理を実行するクラス
  */
-class EateryService {
+class EateryService extends BaseService {
 
 	private const AREA_ALL = 0;
+
+	/**
+	 * コンストラクタ
+	 */
+	public function __construct() {
+		parent::__construct(EateryDAO::class);
+	}
 
 	/**
 	 * すべてのレストランを取得する（初期表示）
 	 * @return レストランリスト
 	 */
 	public function getAllEatery() {
-		$dao = new EateryDAO();
-		$eateries = $dao->findAll();
-		$eateryList = $this->convertResultsToList($eateries);
-		return $eateryList;
+		try {
+			$eateries = $this->dao->findAll();
+			$eateryList = $this->convertResultsToList($eateries);
+			return $eateryList;
+		} catch (DAOException $e) {
+			throw new ServiceException("すべてのレストランリスト作成に失敗しました\n" . $e->getMessage() , $e);
+		}
 	}
 
 	/**
@@ -27,15 +40,19 @@ class EateryService {
 	 * @return 地域別レストランリスト
 	 */
 	public function getEateryList(int $area):array {
-		$dao = new EateryDAO();
-		$eateries = null;
-		if ($area === self::AREA_ALL) {
-			$eateries = $dao->findAll();
-		} else {
-			$eateries = $dao->findByArea($area);
+		try {
+			$dao = new EateryDAO();
+			$eateries = null;
+			if ($area === self::AREA_ALL) {
+				$eateries = $dao->findAll();
+			} else {
+				$eateries = $dao->findByArea($area);
+			}
+			$eateryList = $this->convertResultsToList($eateries);
+			return $eateryList;
+		} catch (DAOException $e) {
+			throw new ServiceException("地域別レストランリスト作成に失敗しました\n" . $e->getMessage() , $e);
 		}
-		$eateryList = $this->convertResultsToList($eateries);
-		return $eateryList;
 	}
 
 	/**

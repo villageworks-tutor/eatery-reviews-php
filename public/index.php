@@ -8,6 +8,11 @@ use App\infra\router\Router;
 use App\infra\router\Route;
 use App\infra\http\Request;
 use App\application\controller\EateryController;
+use App\application\controller\AuthController;
+use App\application\controller\ReviewController;
+
+// セッションの開始
+session_start();
 
 // ※通常構成との重要な違い
 // 一般的な VirtualHost 構成では、DocumentRoot をプロジェクトの public/ に設定するため
@@ -24,8 +29,14 @@ $base = Configures::BASE_PATH;
 
 // ルーティング設定
 $router = new Router();
-$router->addRoute(new Route("{$base}/", EateryController::class, "index"));    // 初期画面表示
-$router->addRoute(new Route("{$base}/list", EateryController::class, "list")); // 地域別レストラン一覧表示
+$router->addRoute(new Route("{$base}/",             EateryController::class, "index"));   // 初期画面表示
+$router->addRoute(new Route("{$base}/list",         EateryController::class, "list"));    // 地域別レストラン一覧表示
+$router->addRoute(new Route("{$base}/detail",       EateryController::class, "detail"));  // レストラン詳細表示
+$router->addRoute(new Route("{$base}/login",        AuthController::class,   "index"));   // ログイン画面表示
+$router->addRoute(new Route("{$base}/post/confirm", ReviewController::class, "confirm")); // レビュ確認
+$router->addRoute(new Route("{$base}/post/execute", ReviewController::class, "execute")); // レビュ登録
+$router->addRoute(new Route("{$base}/post/edit",    ReviewController::class, "edit"));    // レビュ修正
+
 
 // リクエストオブジェクトをインスタンス化
 $request = new Request();

@@ -292,6 +292,10 @@ body {
   color: tomato;
 }
 
+.u-text-small {
+  font-size: 1.225rem;
+}
+
 .u-shadow-sm {
   -webkit-box-shadow: 10px 10px 15px -10px;
           box-shadow: 10px 10px 15px -10px;

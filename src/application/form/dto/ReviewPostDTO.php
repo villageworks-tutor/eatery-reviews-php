@@ -45,6 +45,10 @@ class ReviewPostDTO {
 	public function getRating():string {return $this->rating;}
 	public function setRating(string $rating):void {$this->rating = $rating;}
 
+	public function getRatingAsInteger(): int {
+		return (int) $this->rating;
+	}
+
 	/**
 	 * テストおよび比較処理のための正規文字列表現を返す。
 	 *

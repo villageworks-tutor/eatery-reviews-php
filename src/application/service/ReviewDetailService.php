@@ -85,7 +85,7 @@ class ReviewDetailService extends BaseService {
 	 * @return 評価ポイントの数「★」の文字列
 	 */
 	private function convertPointsToStars(int $rating):string {
-		$maxPoint = 5; // TODO: 評価ポイント表示の繰り返し回数と連動させる？
+		$maxPoint = 5;
 		$stars = "";
 		for ($i = 0; $i < ReviewConfigure::MAX_RATING; $i++) {
 			if ($i < $rating) {

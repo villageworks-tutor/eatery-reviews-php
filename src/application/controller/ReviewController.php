@@ -8,6 +8,7 @@ use App\application\service\ReviewService;
 use App\application\service\EateryDetailService;
 use App\application\service\ReviewDetailService;
 use App\application\config\ReviewConfigure;
+use App\application\service\Validator;
 
 use App\infra\config\Configures;
 use App\infra\http\Request;
@@ -18,6 +19,10 @@ use App\view\View;
  */
 class ReviewController extends BaseController {
 
+	/**
+	 * レビュを投稿する
+	 * @param $request HTTPリクエストオブジェクト
+	 */
 	public function execute(Request $request) {
 			// リクエストパラメータを取得
 			$reviewPostDto = new ReviewPostDTO(
@@ -55,14 +60,41 @@ class ReviewController extends BaseController {
 
 	/**
 	 * レビュ確認画面を表示する
+	 * @param $request HTTPしクエストオブジェクト
 	 */
 	public function confirm(Request $request) {
-		$review	= new ReviewPostDTO("7", "2", "totsuka", "時代遅れのおれ", "1980年の、馴染みはないがジョシュ・ブローリンのお父さん主演、ありがちなstoryだが誘拐された娘の奪還映画が掛かっているようで、ちょうど正午の映画の切符をとって新宿にやって来た", "5");
+		// リクエストパラメータを取得
+		$reviewDto = new ReviewPostDTO(
+			eateryId: $request->body["eateryId"],
+			handleId: $request->body["handleId"],
+			handleName: $request->body["handleName"],
+			title: $request->body["title"] ?? "",
+			comment: $request->body["review"],
+			rating: $request->body["rating"]
+		);
+
+		$subject = trim($request->body["title"] ?? "");
+		if ($subject === "") {
+				$subject = "無題";
+		}
+		$reviewDto->setTitle($subject);
+
+		// 入力値チェック
+		if (!Validator::isRequired($reviewDto->getComment())) {
+			$_SESSION["error"] = "口コミは必須です。";
+			$_SESSION["review"] = $reviewDto;
+			$redirectURL = Configures::BASE_PATH . "/detail?id=" . $reviewDto->getEateryId();
+			header("Location: {$redirectURL}");
+			exit;
+		}
+
 		// レビュ確認画面をレンダリング
 		$title = "レビュの確認";
+		$selectedRating = (int) $reviewDto->getRating();
 		$this->contents[] = (new View("review/confirm", [
 			"title" => $title,
-			"review" => $review,
+			"review" => $reviewDto ?? new $reviewDto(),
+			"selectedRating" => $selectedRating,
 			"base" => Configures::BASE_PATH
 		]))->render();
 		// レイアウトに組み込んで出力

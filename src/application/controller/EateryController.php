@@ -12,7 +12,9 @@ use App\application\service\EateryService;
 use App\application\service\EateryDetailService;
 use App\application\service\ReviewDetailService;
 use App\application\service\ServiceException;
+use App\application\form\dto\ReviewPostDTO;
 use App\application\config\ReviewConfigure;
+use App\application\utils\StringUtils;
 
 /**
  * レストランに関する処理を制御するコントローラ
@@ -114,13 +116,29 @@ class EateryController extends BaseController	{
 			// フラッシュメッセージを取得
 			$message = $_SESSION["flash_message"] ?? null;
 			unset($_SESSION["flash_message"]);
+			$error = $_SESSION["error"] ?? null;
+			unset($_SESSION["error"]);
+			$reviewDto = $_SESSION["reviewDto"] ?? null;
+			unset($_SESSION["reviewDto"]);
+
+			$reviewDto = new ReviewPostDTO(
+				eateryId: $eatery->getId(), 
+				handleId: 2,
+				handleName: "totsuka",
+				title: "",
+				comment: "",
+				rating: ReviewConfigure::DEFAULT_RATING
+			);
 
 			$this->contents[] = (new View("eateries/detail", [
 				"eatery"  => $eatery,
 				"reviews" => $reviews,
+				"reviewDto" => $reviewDto,
 				"maxRating" => ReviewConfigure::MAX_RATING,
+				"selectedRating" => $reviewDto->getRatingAsInteger(),
 				"defaultRating" => ReviewConfigure::DEFAULT_RATING,
 				"message" => $message,
+				"error" => $error,
 				"base" => Configures::BASE_PATH
 			]))->render();
 			// レイアウトに組み込んで出力
